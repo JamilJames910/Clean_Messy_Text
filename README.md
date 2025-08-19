@@ -1,135 +1,122 @@
+<<<<<<< HEAD
 # Messy Text Generator & Cleaner
+=======
+# Clean\_Messy\_Text 📝
+>>>>>>> 104e555 (Update README with project description and contact info)
 
-![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
+A Python script to generate messy text and clean it back to readable form.
+Perfect for testing text preprocessing pipelines, NLP models, or just having fun with typos, emojis, and HTML noise.
 
-A robust Python utility for **generating messy, noisy text** and **cleaning it back** into readable form. This project is ideal for **text processing, NLP experiments, and data augmentation**.
+## Features ✨
 
----
+✅ Generate messy text with typos, random casing, extra punctuation, emojis, and HTML tags.
+✅ Clean messy text back to readable form.
+✅ Handles HTML entities and tags.
+✅ Fixes common typos and contractions.
+✅ Optionally remove basic stopwords.
+✅ Adjustable noise level for messiness.
 
-## 🚀 Project Overview
+## Table of Contents
 
-Text data in the real world is rarely perfect — it may contain **typos, inconsistent casing, extra punctuation, emojis, or HTML tags**. This library provides two complementary tools:
+* [Installation](#installation-🛠️)
+* [Usage](#usage-💻)
+* [Example](#example)
+* [Project Structure](#project-structure-🗂️)
+* [Contributing](#contributing-🤝)
+* [Contact](#contact-✉️)
 
-1. **Messy Text Generator**  
-   Introduce controlled noise into clean text with configurable levels:
-   - Typos (swap, drop, duplicate, insert characters)
-   - Random punctuation duplication
-   - Mixed casing
-   - Emoji and HTML insertion
-   - Random whitespace variations
+## Installation 🛠️
 
-2. **Text Cleaner**  
-   Recover clean text from noisy input using:
-   - HTML unescaping and tag removal
-   - Control/non-printable character removal
-   - Punctuation normalization
-   - Contraction expansion
-   - Common typo fixes
-   - Optional stopword removal
-
-This dual functionality makes it perfect for testing **NLP pipelines, chatbots, AI text models, and data preprocessing**.
-
----
-
-## 💡 Features
-
-- Generate messy text with **adjustable noise levels**
-- Correct typos, normalize punctuation, and **clean HTML/emoji artifacts**
-- Expand common contractions (`can't` → `cannot`)
-- Optional stopword removal for cleaner outputs
-- Lightweight and easy-to-integrate Python module
-
----
-
-## ⚙️ Installation
-
-Clone this repository and ensure Python 3.10+ is installed:
+Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/messy-text-generator.git
-cd messy-text-generator
-pip install -r requirements.txt
-````
+git clone https://github.com/JamilJames910/Clean_Messy_Text.git
+cd Clean_Messy_Text
+```
 
-> No external dependencies are strictly required; standard Python libraries (`re`, `html`, `random`, `string`) are sufficient.
+Make sure you have Python 3.x installed.
 
----
+No additional dependencies are required—Python's built-in modules handle everything (`random`, `re`, `html`, `string`).
 
-## 🛠 Usage
+## Usage 💻
 
-### Generate Messy Text
+Run the script:
+
+```bash
+python Clean_Messy_Text.py
+```
+
+You can use the functions in your own scripts:
 
 ```python
-from messy_text import make_messy
+from Clean_Messy_Text import make_messy, clean_text
 
 text = "The quick brown fox jumps over the lazy dog."
-messy_text = make_messy(text, noise_level=0.35)
-print(messy_text)
-```
-
-### Clean Messy Text
-
-```python
-from messy_text import clean_text
-
-messy_input = "ThE qui!ck brOwn fOx jum!ps over teh lazy dog!!!"
-cleaned = clean_text(messy_input)
-print(cleaned)
-# Output: "the quick brown fox jumps over the lazy dog"
-```
-
-### Example with Both
-
-```python
-original = "I can't believe it's 2025! HTML <b>bold</b>, emojis, and typos."
-messy = make_messy(original, noise_level=0.5)
+messy = make_messy(text, noise_level=0.3)
 restored = clean_text(messy)
+print(messy)
+print(restored)
 ```
 
----
+### Key Functions
 
-## 🎯 Use Cases
+* **`make_messy(text, noise_level)`**: Turn clean text into messy text.
 
-* **Data augmentation** for NLP or machine learning pipelines
-* **Testing chatbots** on noisy or user-generated input
-* **Simulating human typos** in input fields
-* **Text preprocessing pipelines** for AI models
-* Cleaning legacy datasets with inconsistent formatting
+  * `noise_level`: `0.0` (no changes) to `1.0` (lots of noise)
+* **`clean_text(text, remove_stopwords=False)`**: Clean messy input and fix typos.
 
----
+  * `remove_stopwords=True` removes simple common stopwords.
 
-## 📝 Contributing
+## Example
 
-Contributions, bug reports, and feature requests are welcome!
-Please follow these steps:
-
-1. Fork the repository
-2. Create a branch: `git checkout -b feature/new-feature`
-3. Commit changes: `git commit -m "Add new feature"`
-4. Push branch: `git push origin feature/new-feature`
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
-
----
-
-## 🔗 References & Related Projects
-
-* [NLTK](https://www.nltk.org/) – Python natural language toolkit
-* [spaCy](https://spacy.io/) – Industrial-strength NLP
-* [Text Augmentation Techniques](https://arxiv.org/abs/2003.02245) – Academic reference for text noise/augmentation
-
----
-
-## 👩‍💻 Author
-
-**Jamil James** – Passionate Python developer focused on **NLP, AI, and automation**.
-GitHub: https://github.com/JamilJames910
-
+```python
+clean_example = "I can't believe it's already 2025! Let's test: HTML <b>bold</b>, emojis, and typos."
 ```
 
+Generate messy versions:
+
+```python
+for lvl in (0.15, 0.35, 0.7):
+    messy = make_messy(clean_example, noise_level=lvl)
+    print(f"\n-- noise_level={lvl} --")
+    print(messy)
+
+    restored = clean_text(messy)
+    print("\nrestored ->")
+    print(restored)
+```
+
+Output might look like:
+
+```
+-- noise_level=0.35 --
+🙂 I Cna't believE it s a lready 2025!! <b>bold</b> emoj i s!!
+restored ->
+i can not believe it is already 2025 ! bold emojis and typos .
+```
+
+## Project Structure 🗂️
+
+```
+Clean_Messy_Text
+├── Clean_Messy_Text.py   # Main script
+├── README.md              # Project documentation
+└── .gitignore             # Git ignore file
+```
+
+## Contributing 🤝
+
+Contributions, suggestions, and improvements are welcome!
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Add feature"`.
+4. Push to the branch: `git push origin feature-name`.
+5. Open a Pull Request.
+
+## Contact ✉️
+
+Created with ❤️ by Jamil James
+
+GitHub: [JamilJames910](https://github.com/JamilJames910)
+Email: [Jamil.i.James1@gmail.com](mailto:Jamil.i.James1@gmail.com)
