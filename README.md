@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Messy Text Generator & Cleaner
-=======
-# Clean\_Messy\_Text 📝
->>>>>>> 104e555 (Update README with project description and contact info)
+# Clean Messy Text 📝
 
 A Python script to generate messy text and clean it back to readable form.
 Perfect for testing text preprocessing pipelines, NLP models, or just having fun with typos, emojis, and HTML noise.
