@@ -5,12 +5,13 @@ Perfect for testing text preprocessing pipelines, NLP models, or just having fun
 
 ## Features ✨
 
-✅ Generate messy text with typos, random casing, extra punctuation, emojis, and HTML tags.
-✅ Clean messy text back to readable form.
-✅ Handles HTML entities and tags.
-✅ Fixes common typos and contractions.
-✅ Optionally remove basic stopwords.
+✅ Generate messy text with typos, random casing, extra punctuation, emojis, and HTML tags.  
+✅ Clean messy text back to readable form.  
+✅ Handles HTML entities and tags.  
+✅ Fixes common typos and contractions.  
+✅ Optionally remove basic stopwords.  
 ✅ Adjustable noise level for messiness.
+
 
 ## Table of Contents
 
